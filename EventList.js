@@ -1,12 +1,23 @@
 import React, { Component } from 'react';
 import { FlatList, Text } from 'react-native';
+import EventCard from './EventCard';
 
 class EventList extends Component {
+  state = {
+    events: []
+  }
+
+  componentDidMount() {
+    const events = require('./db.json').events;
+    this.setState({ events });
+  }
+
   render() {
     return (
         <FlatList
-          data={[{ name: 'a' }, { name: 'b' }]}
-          renderItem={({ item }) => <Text>{item.name}</Text>}
+          data={this.state.events}
+          renderItem={({ item }) => <EventCard event={item} />}
+          keyExtractor={item => item.id}
           />
       );
   }
