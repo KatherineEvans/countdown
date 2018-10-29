@@ -89,6 +89,13 @@ const styles = StyleSheet.create({
     marginLeft: 7,
     textAlign: 'left'
   },
+  counterContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingLeft: '5%', 
+    paddingRight: '5%'
+  },
   counter: {
     width: '25%',
     flex: 1
